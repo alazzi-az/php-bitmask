@@ -33,7 +33,7 @@ class EnumBitmaskFactory
      */
     public function createWithMask(string $enum, int $mask): EnumBitmaskHandler
     {
-        $maskHandler = new BitmaskHandler($mask, $this->converter->isBackedEnum($enum));
+        $maskHandler = new BitmaskHandler($mask, isIntBacked: $this->converter->isBackedEnum($enum));
         $maskMapper = new BitmaskMapper($enum);
 
         return new EnumBitmaskHandler($enum, $maskHandler, $maskMapper);
