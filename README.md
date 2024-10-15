@@ -370,7 +370,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Mohammed Azman](https://github.com/56982649+mohammedazman)
+- [Mohammed Azman](https://github.com/mohammedazman)
 - [All Contributors](../../contributors)
 
 ## License
