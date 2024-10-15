@@ -1,14 +1,10 @@
 <?php
 
 use Alazziaz\Bitmask\Bitmask;
-use Alazziaz\Bitmask\Contracts\Maskable;
 use Alazziaz\Bitmask\Contracts\EnumMaskable;
-use PHPUnit\Framework\AssertionFailedError;
+use Alazziaz\Bitmask\Contracts\Maskable;
 
-
-beforeEach(function () {
-
-});
+beforeEach(function () {});
 
 it('can create a bitmask handler', function () {
     $maskable = Bitmask::bitmaskHandler(3);
@@ -47,7 +43,7 @@ it('can convert bitmask to array', function () {
 });
 
 it('can convert array to bitmask', function () {
-    $result = Bitmask::arrayToBitMask([2,8]);
+    $result = Bitmask::arrayToBitMask([2, 8]);
     expect($result)->toEqual(10); // 2^1 + 2^3
 });
 
@@ -74,7 +70,7 @@ it('can convert bitmask to binary string', function () {
 });
 it('can retrieve active indexes from bitmask', function () {
     $result = Bitmask::getActiveIndexes(10);
-    expect($result)->toEqual([1,3]); // Active indexes are 2^1 and 2^3
+    expect($result)->toEqual([1, 3]); // Active indexes are 2^1 and 2^3
 });
 
 it('can retrieve active bits from bitmask', function () {

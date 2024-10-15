@@ -5,8 +5,7 @@ namespace Alazziaz\Bitmask\Tests\Unit\Mappers;
 use Alazziaz\Bitmask\Mappers\BitmaskMapper;
 use InvalidArgumentException;
 
-
-beforeAll(function (){
+beforeAll(function () {
     enum SimpleEnum: int
     {
         case FIRST = 1;
@@ -45,8 +44,9 @@ it('converts enum case to bit', function () {
 });
 
 it('throws an exception for invalid enum case', function () {
-    Enum InvalidEnum:int{
-        case Test=8;
+    enum InvalidEnum: int
+    {
+        case Test = 8;
     }
     $this->mapper->toBit(InvalidEnum::Test);
 })->throws(InvalidArgumentException::class, 'Invalid enum case:');

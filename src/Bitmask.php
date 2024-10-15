@@ -9,20 +9,24 @@ use Alazziaz\Bitmask\Util\BitmaskConverter;
 use Alazziaz\Bitmask\Util\BitmaskReader;
 use Alazziaz\Bitmask\Validators\BitmaskValidator;
 use UnitEnum;
-class Bitmask {
 
+class Bitmask
+{
     private static ?BitmaskConverter $converter = null;
+
     private static ?BitmaskReader $reader = null;
 
     private static ?BitmaskValidator $validator = null;
+
     /**
      * Lazy-load the BitmaskConverter instance.
      */
     private static function converter(): BitmaskConverter
     {
         if (self::$converter === null) {
-            self::$converter = new BitmaskConverter();
+            self::$converter = new BitmaskConverter;
         }
+
         return self::$converter;
     }
 
@@ -32,8 +36,9 @@ class Bitmask {
     private static function reader(): BitmaskReader
     {
         if (self::$reader === null) {
-            self::$reader = new BitmaskReader();
+            self::$reader = new BitmaskReader;
         }
+
         return self::$reader;
     }
 
@@ -43,8 +48,9 @@ class Bitmask {
     private static function validator(): BitmaskValidator
     {
         if (self::$validator === null) {
-            self::$validator = new BitmaskValidator();
+            self::$validator = new BitmaskValidator;
         }
+
         return self::$validator;
     }
 
@@ -52,7 +58,7 @@ class Bitmask {
         int $initialMask = 0,
         ?int $maxBit = null,
     ): Maskable {
-        return  BitmaskHandler::create($initialMask, $maxBit);
+        return BitmaskHandler::create($initialMask, $maxBit);
     }
 
     public static function enumBitmaskHandler(
@@ -60,16 +66,15 @@ class Bitmask {
         UnitEnum ...$bits
     ): EnumMaskable {
 
-        return  self::enumBitmaskHandlerFactory()->create($enumClass,...$bits);
+        return self::enumBitmaskHandlerFactory()->create($enumClass, ...$bits);
     }
 
     public static function enumBitmaskHandlerFactory(
 
     ): EnumBitmaskFactory {
 
-        return  new EnumBitmaskFactory();
+        return new EnumBitmaskFactory;
     }
-
 
     // Expose BitmaskConverter Methods
 
@@ -104,6 +109,7 @@ class Bitmask {
     {
         return self::reader()->getActiveBits($bitmask);
     }
+
     public static function getActiveIndexes(int $bitmask): array
     {
         return self::reader()->getActiveIndexes($bitmask);
@@ -140,6 +146,4 @@ class Bitmask {
     {
         self::validator()->validateBits($bits);
     }
-
-
 }

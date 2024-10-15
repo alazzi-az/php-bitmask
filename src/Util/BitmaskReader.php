@@ -4,7 +4,7 @@ namespace Alazziaz\Bitmask\Util;
 
 class BitmaskReader
 {
-    public  function getActiveBits(int $bitmask): array
+    public function getActiveBits(int $bitmask): array
     {
         $activeBits = [];
         $bitPosition = 1;
@@ -18,14 +18,17 @@ class BitmaskReader
 
         return $activeBits;
     }
-    public  function getActiveIndexes(int $mask): array
+
+    public function getActiveIndexes(int $mask): array
     {
         $bitIndexes = [];
         foreach ($this->getActiveBits($mask) as $index => $bit) {
             $bitIndexes[$index] = $this->getMostSignificantBitIndex($bit);
         }
+
         return $bitIndexes;
     }
+
     public function countActiveBits(int $bitmask): int
     {
 
@@ -34,12 +37,14 @@ class BitmaskReader
 
     public function getMostSignificantBitIndex(int $bitmask): int
     {
-        return (int)log($bitmask, 2);
+        return (int) log($bitmask, 2);
     }
+
     public function getLeastSignificantBitIndex(int $bitmask): int
     {
-        return (int)log($bitmask & -$bitmask, 2);
+        return (int) log($bitmask & -$bitmask, 2);
     }
+
     public function convertToBinaryString(int $bitmask): string
     {
         return decbin($bitmask);

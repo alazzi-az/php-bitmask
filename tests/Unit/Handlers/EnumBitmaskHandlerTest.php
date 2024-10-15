@@ -17,7 +17,6 @@ beforeAll(function () {
     }
 });
 
-
 beforeEach(function () {
 
     $this->mockMaskHandler = $this->createMock(Maskable::class);
@@ -31,7 +30,7 @@ beforeEach(function () {
 });
 
 it('validates enum in the constructor', function () {
-    expect(fn() => new EnumBitmaskHandler(stdClass::class, $this->mockMaskHandler, $this->mockMaskMapper))
+    expect(fn () => new EnumBitmaskHandler(stdClass::class, $this->mockMaskHandler, $this->mockMaskMapper))
         ->toThrow(InvalidArgumentException::class, 'EnumBitmaskHandler enum must be a subclass of UnitEnum');
 });
 
@@ -87,12 +86,12 @@ it('converts to array representation', function () {
 });
 
 it('validates enum bits in remove method', function () {
-    expect(fn() => $this->enumBitmaskHandler->remove(TestInvalidEnum::Bit_Four))
+    expect(fn () => $this->enumBitmaskHandler->remove(TestInvalidEnum::Bit_Four))
         ->toThrow(InvalidArgumentException::class);
 });
 
 it('validates enum bits in add method', function () {
 
-    expect(fn() => $this->enumBitmaskHandler->add(TestInvalidEnum::Bit_Four))
+    expect(fn () => $this->enumBitmaskHandler->add(TestInvalidEnum::Bit_Four))
         ->toThrow(InvalidArgumentException::class);
 });

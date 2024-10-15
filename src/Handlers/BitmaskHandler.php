@@ -9,28 +9,34 @@ use Alazziaz\Bitmask\Validators\BitmaskValidator;
 final class BitmaskHandler implements Maskable
 {
     private BitmaskValidator $validator;
-    private BitmaskReader  $bitmaskReader;
+
+    private BitmaskReader $bitmaskReader;
+
     public function __construct(
-        private int           $currentMask = 0,
-        private readonly ?int $maxBit= null,
+        private int $currentMask = 0,
+        private readonly ?int $maxBit = null,
         bool $isIntBacked = false,
     ) {
-        $this->validator = new  BitmaskValidator($this->maxBit,$isIntBacked);
-        $this->bitmaskReader = new  BitmaskReader();
+        $this->validator = new BitmaskValidator($this->maxBit, $isIntBacked);
+        $this->bitmaskReader = new BitmaskReader;
         $this->validator->validateMask($this->currentMask);
     }
+
     public static function create(int $currentMask = 0, ?int $maxBit = null): self
     {
-        return new self($currentMask, $maxBit,true);
+        return new self($currentMask, $maxBit, true);
     }
+
     public function __toString(): string
     {
         return (string) $this->currentMask;
     }
-    public  function toString(): string
+
+    public function toString(): string
     {
         return $this->bitmaskReader->convertToBinaryString($this->currentMask);
     }
+
     public function getValue(): int
     {
         return $this->currentMask;
@@ -43,9 +49,9 @@ final class BitmaskHandler implements Maskable
         foreach ($bitValues as $bitValue) {
             $this->currentMask |= $bitValue;
         }
+
         return $this;
     }
-
 
     public function remove(int ...$bitValues): self
     {
@@ -54,8 +60,10 @@ final class BitmaskHandler implements Maskable
                 $this->currentMask &= ~$bitValue;
             }
         }
+
         return $this;
     }
+
     public function has(int ...$bitValues): bool
     {
         $this->validateBitValues($bitValues);
@@ -64,6 +72,7 @@ final class BitmaskHandler implements Maskable
                 return false;
             }
         }
+
         return true;
     }
 
@@ -71,9 +80,9 @@ final class BitmaskHandler implements Maskable
     {
         return $this->bitmaskReader->getActiveBits($this->getValue());
     }
+
     private function validateBitValues(array $bitValues): void
     {
         $this->validator->validateBits($bitValues);
     }
-
 }

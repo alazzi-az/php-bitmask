@@ -2,25 +2,24 @@
 
 namespace Alazziaz\Bitmask\Mappers;
 
-
 use Alazziaz\Bitmask\Util\BitmaskConverter;
+use BackedEnum;
 use InvalidArgumentException;
 use UnitEnum;
-use BackedEnum;
 
 /** @property UnitEnum $enumClass */
 class BitmaskMapper
 {
     private array $flagMappings = [];
-    private BitmaskConverter $converter;
-    /** @var $enumClass class-string<UnitEnum> */
 
+    private BitmaskConverter $converter;
+
+    /** @var class-string<UnitEnum> */
     public function __construct(
 
         private readonly string $enumClass
-    )
-    {
-        $this->converter = new BitmaskConverter();
+    ) {
+        $this->converter = new BitmaskConverter;
         $this->initializeMappings($enumClass);
     }
 
@@ -34,10 +33,11 @@ class BitmaskMapper
         return $this->flagMappings;
     }
 
-    public  function resolveBitValue(UnitEnum $case,int $index): int
+    public function resolveBitValue(UnitEnum $case, int $index): int
     {
-        return $case instanceof BackedEnum ? (int)$case->value : $this->converter->indexToBitMask($index);
+        return $case instanceof BackedEnum ? (int) $case->value : $this->converter->indexToBitMask($index);
     }
+
     public function toEnum(int $bit): UnitEnum
     {
 
@@ -48,13 +48,16 @@ class BitmaskMapper
         }
         throw new InvalidArgumentException("No matching enum found for bit value: $bit");
     }
+
     public function toBit(UnitEnum $case): int
     {
         $this->ensureValidEnum($case);
+
         return $this->flagMappings[$case->name];
     }
+
     /**
-     * @param class-string<UnitEnum> $enum
+     * @param  class-string<UnitEnum>  $enum
      */
     public function initializeMappings(string $enum): void
     {
@@ -65,9 +68,9 @@ class BitmaskMapper
 
     private function ensureValidEnum(UnitEnum $case): void
     {
-        if (!$case instanceof $this->enumClass) {
+        if (! $case instanceof $this->enumClass) {
             throw new InvalidArgumentException(
-                "Invalid enum case: " . get_class($case) . " does not belong to {$this->enumClass}"
+                'Invalid enum case: '.get_class($case)." does not belong to {$this->enumClass}"
             );
         }
     }
