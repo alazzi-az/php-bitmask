@@ -111,7 +111,6 @@ $enumHandler = Bitmask::enumBitmaskHandlerFactory()->create(
 
 ---
 
-
 #### **1. Exposing BitmaskConverter Methods**
 
 - **`indexToBitMask(int $index): int`**  
@@ -210,7 +209,6 @@ $enumHandler = Bitmask::enumBitmaskHandlerFactory()->create(
   ```
 
 ---
-
 
 ### BitmaskHandler
 
@@ -347,11 +345,6 @@ public function toMaskKey(): string
 
 With this approach, the `toArray` method in `EnumBitmaskHandler` can utilize the `toMaskKey` method to generate a more
 descriptive and meaningful array representation of the current mask.
-
-
-
-
-
 
 
 ## Testing
