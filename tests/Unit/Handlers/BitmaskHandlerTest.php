@@ -1,6 +1,6 @@
 <?php
-use Alazziaz\Bitmask\Handlers\BitmaskHandler;
 
+use Alazziaz\Bitmask\Handlers\BitmaskHandler;
 
 it('can be created with a valid mask', function () {
     $handler = BitmaskHandler::create(1);
@@ -40,12 +40,12 @@ it('can get active bits from the current mask', function () {
 });
 
 it('throws an exception when trying to add invalid bit values', function () {
-    $handler = BitmaskHandler::create(1,8);
+    $handler = BitmaskHandler::create(1, 8);
     $handler->add(2);
     $handler->add(16);
 })->throws(OutOfRangeException::class);
 
 it('throws an exception when trying to remove invalid bit values', function () {
-    $handler = BitmaskHandler::create(1,4);
+    $handler = BitmaskHandler::create(1, 4);
     $handler->remove(8);
 })->throws(OutOfRangeException::class);

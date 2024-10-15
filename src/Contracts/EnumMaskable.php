@@ -1,7 +1,9 @@
 <?php
 
 namespace Alazziaz\Bitmask\Contracts;
-use  UnitEnum;
+
+use UnitEnum;
+
 interface EnumMaskable
 {
     /**
@@ -37,6 +39,4 @@ interface EnumMaskable
      * @return array<string, bool> [enumKey => isActive]
      */
     public function toArray(): array;
-
-
 }

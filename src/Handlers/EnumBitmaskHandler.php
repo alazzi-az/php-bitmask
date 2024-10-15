@@ -10,22 +10,18 @@ use Alazziaz\Bitmask\Validators\EnumValidator;
 use Alazziaz\Bitmask\Validators\MaskEnumValidator;
 use UnitEnum;
 
-final  class EnumBitmaskHandler implements EnumMaskable
+final class EnumBitmaskHandler implements EnumMaskable
 {
-
-
     public function __construct(
         /** @var UnitEnum */
-        private readonly string        $enum,
-        private readonly Maskable      $maskHandler,
+        private readonly string $enum,
+        private readonly Maskable $maskHandler,
         private readonly BitmaskMapper $maskMapper
 
-    )
-    {
+    ) {
 
         EnumValidator::validate($this->enum);
     }
-
 
     public function remove(UnitEnum ...$bits): self
     {
@@ -37,16 +33,14 @@ final  class EnumBitmaskHandler implements EnumMaskable
 
     private function enumToInt(UnitEnum ...$bits): array
     {
-        return array_map(fn(UnitEnum $bit) => $this->maskMapper->getBitMask($bit->name), $bits);
+        return array_map(fn (UnitEnum $bit) => $this->maskMapper->getBitMask($bit->name), $bits);
     }
-
 
     public function add(UnitEnum ...$bits): self
     {
         MaskEnumValidator::validate($this->enum, $bits);
 
         $this->maskHandler->add(...$this->enumToInt(...$bits));
-
 
         return $this;
     }
@@ -72,7 +66,6 @@ final  class EnumBitmaskHandler implements EnumMaskable
     {
         $result = [];
 
-
         foreach ($this->enum::cases() as $mask) {
             if ($mask instanceof UnitEnum) {
                 $key = $mask instanceof MaskableEnum ? $mask->toMaskKey() : strtolower($mask->name);
@@ -89,5 +82,4 @@ final  class EnumBitmaskHandler implements EnumMaskable
 
         return $this->maskHandler->has(...$this->enumToInt(...$bits));
     }
-
 }
