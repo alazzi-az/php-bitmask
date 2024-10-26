@@ -1,7 +1,7 @@
 # PHP package to work with bitmasking
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/alazzi-az/php-bitmask.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/php-bitmask)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/alazzi-az/php-bitmask/run-tests?branch=main&label=tests)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/alazzi-az/php-bitmask/run-tests.yml?branch=main&label=tests)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/alazzi-az/php-bitmask/fix-php-code-style-issues.yml?branch=main&label=code%20style)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3A%22Fix+PHP+code+style+issues%22+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/alazzi-az/php-bitmask.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/php-bitmask)
 
