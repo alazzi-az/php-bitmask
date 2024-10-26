@@ -1,8 +1,8 @@
 # PHP package to work with bitmasking
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/alazzi-az/php-bitmask.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/php-bitmask)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/alazzi-az/php-bitmask/run-tests?label=tests)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/alazzi-az/php-bitmask/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/alazzi-az/php-bitmask/run-tests?branch=main&label=tests)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/alazzi-az/php-bitmask/fix-php-code-style-issues.yml?branch=main&label=code%20style)](https://github.com/alazzi-az/php-bitmask/actions?query=workflow%3A%22Fix+PHP+code+style+issues%22+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/alazzi-az/php-bitmask.svg?style=flat-square)](https://packagist.org/packages/alazzi-az/php-bitmask)
 
 **PHP Bitmask** is a powerful package for managing bitmask operations in php applications. It provides an elegant and
